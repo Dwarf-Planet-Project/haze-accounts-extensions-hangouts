@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="hangouts">
+    <type>sync</type>
+    <name>Google Hangouts</name>
+    <provider>hangouts</provider>
+    <icon>image://theme/icon-m-sync</icon>
+
+    <template>
+        <setting name="sync_profile_templates" type="as">["google.Signon"]</setting>
+        <group name="auth">
+            <setting name="method">oauth2</setting>
+            <setting name="mechanism">user_agent</setting>
+            <group name="oauth2">
+                <group name="web_server">
+                    <setting name="Host">accounts.google.com</setting>
+                    <setting name="AuthPath">o/oauth2/programmatic_auth?access_type=offline&top_level_cookie=1</setting>
+                    <setting name="TokenPath">o/oauth2/token</setting>
+                    <setting name="RedirectUri">urn:ietf:wg:oauth:2.0:oob</setting>
+                    <setting name="ResponseType">cookie</setting>
+                    <setting name="Scope" type="as">["https://www.google.com/accounts/OAuthLogin","https://www.googleapis.com/auth/userinfo.email"]</setting>
+                    <setting name= "ClientId">936475272427.apps.googleusercontent.com</setting>
+                    <setting name= "DelegatedClientId">183697946088-m3jnlsqshjhh5lbvg05k46q1k4qqtrgn.apps.googleusercontent.com</setting>
+                    <setting name="AllowedSchemes" type="as">["https"]</setting>
+                </group>
+            </group>
+        </group>
+    </template>
+</service>
